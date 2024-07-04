@@ -1109,21 +1109,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getVsTestPath = void 0;
-const core = __importStar(__webpack_require__(470));
 const path = __importStar(__webpack_require__(622));
 function getVsTestPath() {
-    let vstestLocationMethod = core.getInput('vstestLocationMethod');
-    if (vstestLocationMethod && vstestLocationMethod.toUpperCase() === "LOCATION") {
-        return core.getInput('vstestLocation');
-    }
-    let vsTestVersion = core.getInput('vsTestVersion');
-    if (vsTestVersion && vsTestVersion === "14.0") {
-        return path.join(__dirname, 'win-x64/VsTest/v140/vstest.console.exe');
-    }
-    if (vsTestVersion && vsTestVersion === "15.0") {
-        return path.join(__dirname, 'win-x64/VsTest/v150/Common7/IDE/Extensions/TestPlatform/vstest.console.exe');
-    }
-    return path.join(__dirname, 'win-x64/VsTest/v160/Common7/IDE/Extensions/TestPlatform/vstest.console.exe');
+    return path.join('C:/Program Files/Microsoft Visual Studio/2022/Enterprise/', 'Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe');
+    // let vstestLocationMethod = core.getInput('vstestLocationMethod')
+    // if(vstestLocationMethod && vstestLocationMethod.toUpperCase() === "LOCATION") {
+    //   return core.getInput('vstestLocation')
+    // }
+    // let vsTestVersion = core.getInput('vsTestVersion')
+    // if(vsTestVersion && vsTestVersion === "14.0") {
+    //   return path.join(__dirname, 'win-x64/VsTest/v140/vstest.console.exe')
+    // }
+    // if(vsTestVersion && vsTestVersion === "15.0") {
+    //   return path.join(__dirname, 'win-x64/VsTest/v150/Common7/IDE/Extensions/TestPlatform/vstest.console.exe')
+    // }
+    // return path.join(__dirname, 'win-x64/VsTest/v160/Common7/IDE/Extensions/TestPlatform/vstest.console.exe')
 }
 exports.getVsTestPath = getVsTestPath;
 
@@ -4837,7 +4837,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.run = void 0;
 const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
-const path = __importStar(__webpack_require__(622));
 const uploadArtifact_1 = __webpack_require__(563);
 const getTestAssemblies_1 = __webpack_require__(394);
 const getArguments_1 = __webpack_require__(139);
@@ -4845,6 +4844,7 @@ const getVsTestPath_1 = __webpack_require__(81);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            core.info(`I am not insane`);
             let testFiles = yield getTestAssemblies_1.getTestAssemblies();
             if (testFiles.length == 0) {
                 throw new Error('No matched test files!');
@@ -4853,12 +4853,12 @@ function run() {
             testFiles.forEach(function (file) {
                 core.debug(`${file}`);
             });
-            core.info(`Downloading test tools...`);
-            let workerZipPath = path.join(__dirname, 'win-x64.zip');
-            yield exec.exec(`powershell Invoke-WebRequest -Uri "https://aka.ms/local-worker-win-x64" -OutFile ${workerZipPath}`);
-            core.info(`Unzipping test tools...`);
-            core.debug(`workerZipPath is ${workerZipPath}`);
-            yield exec.exec(`powershell Expand-Archive -Path ${workerZipPath} -DestinationPath ${__dirname}`);
+            core.info(`Skip Downloading test tools...`);
+            // let workerZipPath = path.join(__dirname, 'win-x64.zip')
+            // await exec.exec(`powershell Invoke-WebRequest -Uri "https://aka.ms/local-worker-win-x64" -OutFile ${workerZipPath}`);
+            core.info(`Skip Unzipping test tools...`);
+            // core.debug(`workerZipPath is ${workerZipPath}`);
+            // await exec.exec(`powershell Expand-Archive -Path ${workerZipPath} -DestinationPath ${__dirname}`);
             let vsTestPath = getVsTestPath_1.getVsTestPath();
             core.debug(`VsTestPath: ${vsTestPath}`);
             let args = getArguments_1.getArguments();
