@@ -8,8 +8,8 @@ import {NoFileOptions} from './constants';
 
 export function getVsTestPath(): string {
   
-  
-  return "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe"
+  core.info("C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe")
+  return "C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe"
   
   // let vstestLocationMethod = core.getInput('vstestLocationMethod')
   // if(vstestLocationMethod && vstestLocationMethod.toUpperCase() === "LOCATION") {

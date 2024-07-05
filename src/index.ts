@@ -30,7 +30,7 @@ export async function run() {
     // await exec.exec(`powershell Expand-Archive -Path ${workerZipPath} -DestinationPath ${__dirname}`);
 
     let vsTestPath = getVsTestPath();
-    core.debug(`VsTestPath: ${vsTestPath}`);
+    core.info(`VsTestPath: ${vsTestPath}`);
 
     let args = getArguments();
     core.debug(`Arguments: ${args}`);
