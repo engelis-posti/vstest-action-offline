@@ -1111,8 +1111,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getVsTestPath = void 0;
 const core = __importStar(__webpack_require__(470));
 function getVsTestPath() {
-    core.info("C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe");
-    return "C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe";
+    core.info("\"C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe\"");
+    return "\"C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe\"";
     // let vstestLocationMethod = core.getInput('vstestLocationMethod')
     // if(vstestLocationMethod && vstestLocationMethod.toUpperCase() === "LOCATION") {
     //   return core.getInput('vstestLocation')
