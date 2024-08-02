@@ -4845,7 +4845,6 @@ const getVsTestPath_1 = __webpack_require__(81);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            core.info(`I am not insane`);
             let testFiles = yield getTestAssemblies_1.getTestAssemblies();
             if (testFiles.length == 0) {
                 throw new Error('No matched test files!');

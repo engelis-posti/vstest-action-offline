@@ -9,8 +9,6 @@ import {getVsTestPath} from './getVsTestPath'
 export async function run() {
   try {
 
-    core.info(`I am not insane`);
-
     let testFiles = await getTestAssemblies();
     if(testFiles.length == 0) {
       throw new Error('No matched test files!')
